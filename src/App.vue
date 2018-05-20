@@ -44,7 +44,8 @@
       <message-group v-bind:data="data[0]"></message-group>
       <message-group v-bind:data="data[1]"></message-group>
 
-      <chat-box id="chatbox"></chat-box>
+      <chat-box id="chatbox"></chat-box> <!-- TODO position at bottom -->
+
     </v-content>
     <v-footer app fixed>
       <v-spacer></v-spacer>
@@ -127,7 +128,5 @@ html {
   overflow-y: scroll;
 }
 
-#chatbox {
-}
 
 </style>
