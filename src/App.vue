@@ -43,15 +43,19 @@
     <v-content id="content">
       <message-group v-bind:data="data[0]"></message-group>
       <message-group v-bind:data="data[1]"></message-group>
+
+      <chat-box id="chatbox"></chat-box>
     </v-content>
     <v-footer app fixed>
-      <span>this is a bottom bar for cool information!</span>
+      <v-spacer></v-spacer>
+      <span>&copy; uchat 2018. Made at <a href="https://hacks.mbhs.edu/" target="_blank">BlairHacks_0</a>.</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
 import MessageGroup from './components/MessageGroup.vue'
+import ChatBox from './components/ChatBox.vue'
 export default {
   name: 'app',
   data: () => {
@@ -99,7 +103,7 @@ export default {
     source: String
   },
   components: {
-    MessageGroup
+    MessageGroup, ChatBox
   }
 }
 </script>
@@ -122,4 +126,8 @@ html {
 #content {
   overflow-y: scroll;
 }
+
+#chatbox {
+}
+
 </style>
