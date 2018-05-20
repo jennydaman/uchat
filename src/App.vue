@@ -20,7 +20,6 @@
         </v-list>
       </v-toolbar>
 
-      
       <v-list dense>
         <v-divider></v-divider>
         <v-list-tile v-for="friend in friends" :key="friend.name" @click="">
@@ -33,17 +32,17 @@
         </v-list-tile>
       </v-list>
 
-
     </v-navigation-drawer>
 
     <v-toolbar app fixed clipped-left>
       <v-toolbar-title id="logo" class="hidden-md-and-down">uhacks <small>logo</small></v-toolbar-title>
 
       <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-lg-and-up"></v-toolbar-side-icon>
-      <v-toolbar-title>{{title}}</v-toolbar-title>
+      <v-toolbar-title>{{ person }}</v-toolbar-title>
     </v-toolbar>
-    <v-content>
-      <h1>main content</h1>
+    <v-content id="content">
+      <message-group v-bind:data="data[0]"></message-group>
+      <message-group v-bind:data="data[1]"></message-group>
     </v-content>
     <v-footer app fixed>
       <span>this is a bottom bar for cool information!</span>
@@ -52,25 +51,63 @@
 </template>
 
 <script>
+import MessageGroup from './components/MessageGroup.vue'
 export default {
-  name: "app",
-  data: () => ({
-    drawer: true,
-    title: "person",
-    user: {name: "Jennings Zhang", pic: "https://jennydaman.github.io/assets/square_swan.jpg"},
-    friends: [
-      {name: "Noah Singer", pic: "https://angstromctf.com/assets/images/people/Noah%20Singer.jpg"},
-      {name: "Noah Kim", pic: "https://angstromctf.com/assets/images/people/Noah%20Kim.jpg"},
-      {name: "Ian Rackow", pic: "https://angstromctf.com/assets/images/people/Ian%20Rackow.jpg"}
-    ]
-  }),
+  name: 'app',
+  data: () => {
+    return {
+      drawer: true,
+      person: 'person',
+      user: {
+        name: 'Jennings Zhang',
+        pic: 'https://jennydaman.github.io/assets/square_swan.jpg'
+      },
+      friends: [
+        {
+          name: 'Noah Singer',
+          pic: 'https://angstromctf.com/assets/images/people/Noah%20Singer.jpg'
+        },
+        {
+          name: 'Noah Kim',
+          pic: 'https://angstromctf.com/assets/images/people/Noah%20Kim.jpg'
+        },
+        {
+          name: 'Ian Rackow',
+          pic: 'https://angstromctf.com/assets/images/people/Ian%20Rackow.jpg'
+        }
+      ],
+      data: [
+        {
+          platform: 'discord',
+          isAuthor: false,
+          author: 'Noah Singer',
+          messages: ['hey', 'how are you?']
+        },
+        {
+          platform: 'discord',
+          isAuthor: true,
+          author: 'Jennings Zhang',
+          messages: [
+            'they ask you how you are',
+            "and you have to say you're fine",
+            "but you're not really fine"
+          ]}
+      ]
+    }
+  },
   props: {
     source: String
+  },
+  components: {
+    MessageGroup
   }
-};
+}
 </script>
 
-<style lang="scss">
+<style>
+html {
+  overflow-y: hidden;
+}
 #app {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -80,5 +117,9 @@ export default {
 
 #logo {
   width: 300px;
+}
+
+#content {
+  overflow-y: scroll;
 }
 </style>

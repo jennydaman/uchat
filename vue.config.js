@@ -1,4 +1,4 @@
-const NyanProgressPlugin = require("nyan-progress-webpack-plugin")
+const NyanProgressPlugin = require('nyan-progress-webpack-plugin')
 
 module.exports = {
   lintOnSave: false,
