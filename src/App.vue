@@ -1,12 +1,17 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      clipped
+    <v-toolbar
       fixed
       app
     >
+      <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-lg-and-up"></v-toolbar-side-icon>
+      <v-toolbar-title>{{ person }}</v-toolbar-title>
+    </v-toolbar>
 
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
       <v-toolbar flat class="transparent">
         <v-list class="pa-0">
           <v-list-tile avatar>
@@ -34,23 +39,21 @@
 
     </v-navigation-drawer>
 
-    <v-toolbar app fixed clipped-left>
-      <v-toolbar-title id="logo" class="hidden-md-and-down">uhacks <small>logo</small></v-toolbar-title>
 
-      <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-lg-and-up"></v-toolbar-side-icon>
-      <v-toolbar-title>{{ person }}</v-toolbar-title>
-    </v-toolbar>
-    <v-content id="content">
-      <message-group v-bind:data="data[0]"></message-group>
-      <message-group v-bind:data="data[1]"></message-group>
-
-      <chat-box id="chatbox"></chat-box> <!-- TODO position at bottom -->
-
+    <v-content>
+      <v-container fluid id="content">
+        <message-group v-for="group in data" v-bind:data="group"></message-group>
+      </v-container>
     </v-content>
-    <v-footer app fixed>
-      <v-spacer></v-spacer>
+
+    <v-footer fixed>
       <span>&copy; uchat 2018. Made at <a href="https://hacks.mbhs.edu/" target="_blank">BlairHacks_0</a>.</span>
     </v-footer>
+    <div id="chatpos">
+      <div style="padding-left: 300px" class="hidden-md-and-down"></div>
+    <chat-box></chat-box>
+    </div>
+
   </v-app>
 </template>
 
@@ -96,6 +99,26 @@ export default {
             'they ask you how you are',
             "and you have to say you're fine",
             "but you're not really fine"
+          ]},
+        {
+          platform: 'hangouts',
+          isAuthor: false,
+          author: 'Noah Singer',
+          messages: [
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem arcu, pulvinar eu mauris eget, vestibulum aliquam nisi. Etiam blandit leo lorem, quis gravida nunc faucibus non. Suspendisse potenti. Nam auctor mollis mi sit amet eleifend. Donec nec ornare sem. Integer diam sem, auctor ac ex eget, molestie maximus quam. Fusce pellentesque nisl ac erat vestibulum hendrerit. Praesent ultricies malesuada rhoncus.',
+            "Morbi facilisis, augue sit amet imperdiet varius, dui ipsum vestibulum orci, in tempus enim massa nec neque. Fusce facilisis a mi vitae ornare. Phasellus in enim lorem. Praesent malesuada varius lectus vel eleifend. Sed tempus metus et est tempus, nec eleifend sem posuere. Donec laoreet vitae purus quis varius. Aliquam semper lacus sed laoreet consectetur.",
+            "Sed eget malesuada ligula. Vivamus a tempor magna. Ut ultricies vel lectus eu viverra. Donec at ligula nunc. Nam tempor a magna at auctor. Morbi nec pulvinar elit. Donec tincidunt elit massa, tristique facilisis odio ultrices quis. Ut accumsan a urna in luctus. Donec porttitor sed odio ac molestie.",
+            "In hac habitasse platea dictumst. Integer massa quam, scelerisque vel tellus eu, hendrerit porta turpis. Aliquam erat volutpat. Vestibulum varius lacus sit amet porttitor vulputate. Quisque et justo sed leo pharetra egestas. Integer finibus consectetur metus ac auctor. Aenean purus dui, finibus vel metus eget, convallis tempor ligula. Suspendisse ac accumsan dui. Sed sagittis, tortor sit amet sollicitudin sollicitudin, leo nibh venenatis ipsum, non condimentum turpis velit maximus magna. Nullam non libero eu elit bibendum ullamcorper. Duis a dui sit amet sapien bibendum rhoncus. Aenean sagittis dignissim ipsum, ut finibus ex vestibulum eget. Suspendisse eu nibh pulvinar, pellentesque ipsum quis, vehicula nibh. Nulla aliquet sagittis semper."
+          ]},
+        {
+          platform: 'hangouts',
+          isAuthor: false,
+          author: 'Noah Singer',
+          messages: [
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem arcu, pulvinar eu mauris eget, vestibulum aliquam nisi. Etiam blandit leo lorem, quis gravida nunc faucibus non. Suspendisse potenti. Nam auctor mollis mi sit amet eleifend. Donec nec ornare sem. Integer diam sem, auctor ac ex eget, molestie maximus quam. Fusce pellentesque nisl ac erat vestibulum hendrerit. Praesent ultricies malesuada rhoncus.',
+            "Morbi facilisis, augue sit amet imperdiet varius, dui ipsum vestibulum orci, in tempus enim massa nec neque. Fusce facilisis a mi vitae ornare. Phasellus in enim lorem. Praesent malesuada varius lectus vel eleifend. Sed tempus metus et est tempus, nec eleifend sem posuere. Donec laoreet vitae purus quis varius. Aliquam semper lacus sed laoreet consectetur.",
+            "Sed eget malesuada ligula. Vivamus a tempor magna. Ut ultricies vel lectus eu viverra. Donec at ligula nunc. Nam tempor a magna at auctor. Morbi nec pulvinar elit. Donec tincidunt elit massa, tristique facilisis odio ultrices quis. Ut accumsan a urna in luctus. Donec porttitor sed odio ac molestie.",
+            "In hac habitasse platea dictumst. Integer massa quam, scelerisque vel tellus eu, hendrerit porta turpis. Aliquam erat volutpat. Vestibulum varius lacus sit amet porttitor vulputate. Quisque et justo sed leo pharetra egestas. Integer finibus consectetur metus ac auctor. Aenean purus dui, finibus vel metus eget, convallis tempor ligula. Suspendisse ac accumsan dui. Sed sagittis, tortor sit amet sollicitudin sollicitudin, leo nibh venenatis ipsum, non condimentum turpis velit maximus magna. Nullam non libero eu elit bibendum ullamcorper. Duis a dui sit amet sapien bibendum rhoncus. Aenean sagittis dignissim ipsum, ut finibus ex vestibulum eget. Suspendisse eu nibh pulvinar, pellentesque ipsum quis, vehicula nibh. Nulla aliquet sagittis semper."
           ]}
       ]
     }
@@ -126,6 +149,14 @@ html {
 
 #content {
   overflow-y: scroll;
+  overflow-x: visible;
+}
+
+#chatpos {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  bottom: 12px;
 }
 
 
