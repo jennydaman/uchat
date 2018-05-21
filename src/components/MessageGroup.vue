@@ -9,11 +9,7 @@
   >
     <v-flex v-for="message in data.messages">
       <v-chip
-        v-bind:color="data.isAuthor ? 'white' : {
-          hangouts: 'green',
-          discord: 'purple',
-          facebook: 'blue'
-        }[data.platform]"
+        v-bind:color="data.isAuthor ? 'white' : $bg_color[data.platform]"
         v-bind:text-color="data.isAuthor ? 'black' : 'white'"
         class="message">{{ message }}</v-chip>
     </v-flex>

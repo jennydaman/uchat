@@ -6,7 +6,7 @@
     v-bind:label="platform"
     autofocus
     clearable
-    v-bind:color="'purple'"
+    v-bind:color="$bg_color[platform]"
     box
     rows="1"
     ></v-text-field>
