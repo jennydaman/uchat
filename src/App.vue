@@ -10,6 +10,7 @@
 
     <v-navigation-drawer
       v-model="drawer"
+      fixed
       app
     >
       <v-toolbar flat class="transparent">
@@ -41,12 +42,14 @@
 
 
     <v-content>
-      <v-container fluid id="content">
+      <div id="content">
+      <v-container fluid>
         <message-group v-for="group in data" v-bind:data="group"></message-group>
       </v-container>
+      </div>
     </v-content>
 
-    <v-footer fixed>
+    <v-footer app>
       <span>&copy; uchat 2018. Made at <a href="https://hacks.mbhs.edu/" target="_blank">BlairHacks_0</a>.</span>
     </v-footer>
     <div id="chatpos">
@@ -149,7 +152,7 @@ html {
 
 #content {
   overflow-y: scroll;
-  overflow-x: visible;
+  height: calc(100% - 300px);
 }
 
 #chatpos {
