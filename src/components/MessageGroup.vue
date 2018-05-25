@@ -23,12 +23,12 @@ export default {
     messages: Array
   },
   computed: {
-    special: function() {
-      const bg = this.isAuthor ? "white" : this.$bg_color[this.platform];
-      const fg = this.isAuthor ? "black" : "white";
+    special: function () {
+      const bg = this.isAuthor ? 'white' : this.$bg_color[this.platform]
+      const fg = this.isAuthor ? 'black' : 'white'
 
       return {
-        'background-color': bg ,
+        'background-color': bg,
         color: fg
       }
     }
@@ -66,7 +66,6 @@ export default {
 .mgroup.mleft span:last-child {
   border-bottom-left-radius: var(--r);
 }
-
 
 .mgroup.mright span:first-child {
   border-top-right-radius: var(--r);

@@ -1,2 +1,7 @@
 # uchat
-Universal Chat interface integrating, and able to communicate with multiple platforms.
+
+> Unified chat: cross-platform messaging, one web app.
+
+[![license](https://img.shields.io/github/license/jennydaman/uchat.svg)](https://github.com/jennydaman/uchat/blob/master/LICENSE)
+[![Known Vulnerabilities](https://snyk.io/test/github/jennydaman/uchat/badge.svg?targetFile=package.json)](https://snyk.io/test/github/jennydaman/uchat?targetFile=package.json)
+

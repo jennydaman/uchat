@@ -17,11 +17,11 @@
 
 <script>
 export default {
-  name: "chat-box",
+  name: 'chat-box',
   data: () => {
-    return { platform: "discord" };
+    return { platform: 'discord' }
   }
-};
+}
 </script>
 <style>
 #chatboxbox {
@@ -30,6 +30,3 @@ export default {
 }
 
 </style>
-
-
-
