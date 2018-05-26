@@ -127,7 +127,7 @@ export default {
   watch: {
     darkModel: function() {
       this.$emit('update:darkTheme', this.darkModel)
-      document.cookie = "darkTheme=" + this.darkTheme
+      document.cookie = "darkTheme=" + this.darkModel
     }
   }
 }
