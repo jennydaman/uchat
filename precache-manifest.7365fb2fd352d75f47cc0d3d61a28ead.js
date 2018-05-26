@@ -52,11 +52,11 @@ self.__precacheManifest = [
     "url": "/uchat/mock/user.json"
   },
   {
-    "revision": "f9e447ed6d2629d2907b",
-    "url": "/uchat/js/app.f9e447ed.js"
+    "revision": "91bcacbef223b1d59fbe",
+    "url": "/uchat/js/app.91bcacbe.js"
   },
   {
-    "revision": "d87d6375a545d08bab9e17abc770fe2d",
+    "revision": "93d379356cc77072c030e39bd00131ef",
     "url": "/uchat/index.html"
   },
   {
@@ -76,7 +76,7 @@ self.__precacheManifest = [
     "url": "/uchat/img/Full Logo.png"
   },
   {
-    "revision": "f9e447ed6d2629d2907b",
+    "revision": "91bcacbef223b1d59fbe",
     "url": "/uchat/css/app.ad5ba737.css"
   }
 ];
