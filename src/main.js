@@ -2,11 +2,16 @@ import Vue from 'vue'
 import App from './App.vue'
 import Vuetify from 'vuetify'
 import colors from 'vuetify/es5/util/colors'
-
+import VueMeta from 'vue-meta'
 import './registerServiceWorker'
 
 Vue.config.productionTip = false
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  theme: {
+    primary: colors.grey.base
+  }
+})
+Vue.use(VueMeta)
 
 Vue.prototype.$platform = {
   hangouts: {
@@ -24,7 +29,7 @@ Vue.prototype.$platform = {
   facebook: {
     color: colors.blue.base,
     colorName: 'blue',
-    icon: '',
+    icon: '/uchat/img/third_party/facebook.png',
     name: 'Facebook'
   }
 }

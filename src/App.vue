@@ -107,6 +107,14 @@ export default {
   },
   components: {
     MessageGroup, ChatBox, LateralMenu
+  },
+  metaInfo () {
+    return {
+      title: (this.loading ? '' : 'uchat - ') + this.name,
+      meta: [
+        {name: 'theme-color', content: this.$vuetify.theme.primary}
+      ]
+    }
   }
 }
 </script>
