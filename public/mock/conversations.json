@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Noah Singer",
+    "availablePlatforms": ["discord", "hangouts"],
+    "preferredPlatform": "hangouts",
+    "id": "aff64ded417c621c501735157f4ce4ba"
+  },
+  {
+    "name": "Noah Kim",
+    "availablePlatforms": ["discord", "facebook"],
+    "preferredPlatform": "discord",
+    "id": "5344c381b1e84a579bd44bd237f3d06a"
+  },
+  {
+    "name": "Ian Rackow",
+    "availablePlatforms": ["facebook", "hangouts", "discord"],
+    "preferredPlatform": "facebook",
+    "id": "51c6c72a8666855a729eb35d7d686924"
+  }
+]

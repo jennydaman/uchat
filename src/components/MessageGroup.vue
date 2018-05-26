@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     special: function () {
-      const bg = this.isAuthor ? 'white' : this.$bg_color[this.platform]
+      const bg = this.isAuthor ? 'whitesmoke' : this.$platform[this.platform].color
       const fg = this.isAuthor ? 'black' : 'white'
 
       return {

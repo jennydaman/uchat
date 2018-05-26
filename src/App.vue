@@ -1,52 +1,35 @@
 <template>
-  <v-app dark>
+  <v-app :dark="darkTheme">
     <v-toolbar
       fixed
       app
+      color="primary"
     >
       <v-toolbar-side-icon @click.stop="drawer = !drawer" class="hidden-lg-and-up"></v-toolbar-side-icon>
-      <v-toolbar-title>{{ person }}</v-toolbar-title>
+      <v-toolbar-title>{{ name }}</v-toolbar-title>
+      <!-- <v-spacer></v-spacer>
+      <v-btn icon><v-icon>people</v-icon></v-btn> -->
     </v-toolbar>
 
-    <v-navigation-drawer
-      v-model="drawer"
-      fixed
-      app
-    >
-      <v-toolbar flat class="transparent">
-        <v-list class="pa-0">
-          <v-list-tile avatar>
-            <v-list-tile-avatar>
-              <img v-bind:src="user.pic" >
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ user.name }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-      </v-toolbar>
+  <v-navigation-drawer
+    v-model="drawer"
+    fixed
+    app
+  >
+    <lateral-menu
+    :drawer="drawer"
+    :dark-theme.sync="darkTheme"
+    :user="user"
+    :all-conversations="allConversations"
+    :index.sync="index"
+    ></lateral-menu>
+  </v-navigation-drawer>
 
-      <v-list dense>
-        <v-divider></v-divider>
-        <v-list-tile v-for="friend in conversations" :key="friend.name" @click="">
-          <v-list-tile-avatar>
-            <img v-bind:src="friend.pic" >
-          </v-list-tile-avatar>
-          <v-list-tile-content>
-            <v-list-tile-title>{{ friend.name }}</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
 
-    </v-navigation-drawer>
-
-    <v-footer app fixed class="hidden-md-and-down">
-      <span>&copy; uchat 2018. Made at <a href="https://hacks.mbhs.edu/" target="_blank">BlairHacks_0</a>.</span>
-    </v-footer>
-
-    <div id="chatpos" v-bind:class="{ftspace: $vuetify.breakpoint.lgAndUp}">
+    <!-- appear after loading to avoid undefined errors -->
+    <div id="chatpos" v-if="!loading">
       <div style="padding-left: 300px" class="hidden-md-and-down"></div>
-    <chat-box></chat-box>
+    <chat-box :available-platforms="allConversations[index].availablePlatforms" :current-platform.sync="currentPlatform"></chat-box>
     </div>
 
     <v-content>
@@ -58,27 +41,72 @@
   </v-app>
 </template>
 
+
 <script>
 import MessageGroup from './components/MessageGroup.vue'
 import ChatBox from './components/ChatBox.vue'
-
+import LateralMenu from './components/LateralMenu.vue'
 import * as Model from './model'
+
 export default {
   name: 'app',
   data: () => {
     return {
       drawer: true,
-      person: 'person',
-      user: Model.getUser(),
-      conversations: Model.getConversations(),
-      messageStream: Model.getMessageStream()
+      user: {
+        name: "",
+        pic: ""
+      },
+      allConversations: [],
+      index: 0,
+      messageStream: null,
+      darkTheme: true,
+    }
+  },
+  created: function () {
+    Model.getUser().then(r => {
+      this.user = r
+    })
+    Model.getConversations().then(r => {
+      // TODO: loading spinner, error message if Promise rejected (connection interruption)
+      this.allConversations = r
+      this.loadStream()
+    })
+  },
+  computed: {
+    loading: function() {
+      return this.index >= this.allConversations.length
+    },
+    name: function() {
+      return this.loading ? 'uchat' : this.allConversations[this.index].name
+    },
+    currentPlatform: {
+      get: function() {
+        return this.loading ? 'uchat' : this.allConversations[this.index].preferredPlatform
+      },
+      set: function(newValue) {
+        this.allConversations[this.index].preferredPlatform = newValue
+      }
+    }
+  },
+  watch: {
+    index: 'loadStream',
+    currentPlatform: function() {
+      this.$vuetify.theme.primary = this.$platform[this.currentPlatform].color
+    }
+  },
+  methods: {
+    loadStream: function() {
+      Model.getMessageStream(this.allConversations[this.index].id).then(ms => {
+        this.messageStream = ms
+      })
     }
   },
   props: {
-    source: String
+    source: String // tbh idk what this is doing here
   },
   components: {
-    MessageGroup, ChatBox
+    MessageGroup, ChatBox, LateralMenu
   }
 }
 </script>
@@ -103,9 +131,4 @@ export default {
   bottom: 0;
   z-index: 1;
 }
-
-#chatpos.ftspace {
-  bottom: 12px;
-}
-
 </style>

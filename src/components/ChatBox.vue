@@ -3,23 +3,26 @@
     <v-text-field
     id="textfield"
     name="outgoing"
-    v-bind:label="platform"
+    v-bind:label="currentPlatform"
     autofocus
     clearable
-    v-bind:color="$bg_color[platform]"
+    color="primary"
     box
     rows="1"
     ></v-text-field>
-    <button><img src="/img/third_party/discord.svg" width="30" /></button>
-    <button><img src="/img/third_party/hangouts.png" width="30" /></button>
+    <button v-for="p in availablePlatforms" :key="p" v-on:click="$emit('update:currentPlatform', p)">
+      <img width="30" :title="p" :alt="p" :src="$platform[p].icon"/>
+    </button>
   </v-flex>
 </template>
 
 <script>
+
 export default {
   name: 'chat-box',
-  data: () => {
-    return { platform: 'discord' }
+  props: {
+    availablePlatforms: Array,
+    currentPlatform: String
   }
 }
 </script>
