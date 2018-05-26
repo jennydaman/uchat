@@ -1,0 +1,20 @@
+[
+  {
+    "platform": "discord",
+    "isAuthor": false,
+    "author": "Noah Singer",
+    "messages": ["hey", "how are you?"]
+  },
+  {
+    "platform": "discord",
+    "isAuthor": true,
+    "author": "Jennings Zhang",
+    "messages": [
+      "they ask you how you are",
+      "and you have to say you're fine",
+      "but you're not really fine",
+      "but you can't get into it",
+      "because they would never understand"
+    ]
+  }
+]

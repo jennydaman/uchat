@@ -1,0 +1,24 @@
+[
+  {
+    "platform": "hangouts",
+    "isAuthor": false,
+    "author": "Noah Singer",
+    "messages": [
+      "And in conclusion, we have found MySQL to be an excellent database for our website. Any questions?",
+      "That is an excellent question.",
+      "We have evaluated several NoSQL databases and concluded that the options are all too immature for our production needs."
+    ]
+  },
+  {
+    "platform": "hangouts",
+    "isAuthor": true,
+    "author": "Jennings Zhang",
+    "messages": [
+      "Yes.",
+      "I have a question.",
+      "Why didn't you use MongoDB?",
+      "MongoDB is a web-scale database",
+      "And it doesn't use SQL or joints so it is high performance"
+    ]
+  }
+]
