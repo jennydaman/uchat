@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "40dcb4bc70302814e60c396bf6ae65ce",
-    "url": "/uchat/mock/stream/aff64ded417c621c501735157f4ce4ba.json"
+    "revision": "2b73799655022bb43cf4443cb0815f64",
+    "url": "/uchat/mock/stream/5344c381b1e84a579bd44bd237f3d06a.json"
   },
   {
-    "revision": "45208f641dca2175ccf9",
-    "url": "/uchat/js/vendors~app.45208f64.js"
+    "revision": "09b741ee804aa174c2da",
+    "url": "/uchat/js/vendors~app.09b741ee.js"
   },
   {
     "revision": "1bb365e858673969bcfe49341a6339e0",
@@ -18,6 +18,10 @@ self.__precacheManifest = [
   {
     "revision": "eab6f960fd97cce1dbc299b825d8b1a3",
     "url": "/uchat/uchat/mock/user.json"
+  },
+  {
+    "revision": "fe6bd9bd0678dbc2d130454b6c3bab9e",
+    "url": "/uchat/uchat/mock/conversations.json"
   },
   {
     "revision": "bca8276cadd84b18f0028100d27e4020",
@@ -36,27 +40,23 @@ self.__precacheManifest = [
     "url": "/uchat/mock/stream/51c6c72a8666855a729eb35d7d686924.json"
   },
   {
-    "revision": "2b73799655022bb43cf4443cb0815f64",
-    "url": "/uchat/mock/stream/5344c381b1e84a579bd44bd237f3d06a.json"
+    "revision": "eab6f960fd97cce1dbc299b825d8b1a3",
+    "url": "/uchat/mock/user.json"
   },
   {
-    "revision": "fe6bd9bd0678dbc2d130454b6c3bab9e",
-    "url": "/uchat/uchat/mock/conversations.json"
+    "revision": "40dcb4bc70302814e60c396bf6ae65ce",
+    "url": "/uchat/mock/stream/aff64ded417c621c501735157f4ce4ba.json"
   },
   {
     "revision": "3fb2155b5ba9e40b0f89c8e8216bca5b",
     "url": "/uchat/mock/stream/README.md"
   },
   {
-    "revision": "eab6f960fd97cce1dbc299b825d8b1a3",
-    "url": "/uchat/mock/user.json"
+    "revision": "efee5e5386f0838e7345",
+    "url": "/uchat/js/app.efee5e53.js"
   },
   {
-    "revision": "91bcacbef223b1d59fbe",
-    "url": "/uchat/js/app.91bcacbe.js"
-  },
-  {
-    "revision": "93d379356cc77072c030e39bd00131ef",
+    "revision": "979252bcdf21cbfb64d3a6b73b3cfdcb",
     "url": "/uchat/index.html"
   },
   {
@@ -68,6 +68,10 @@ self.__precacheManifest = [
     "url": "/uchat/img/third_party/hangouts.jpg"
   },
   {
+    "revision": "f9e7680520f222b8388c56e52f9d8948",
+    "url": "/uchat/img/third_party/facebook.png"
+  },
+  {
     "revision": "5aa7f3b38be0614ae9619035c83f2b2f",
     "url": "/uchat/img/third_party/discord.svg"
   },
@@ -76,7 +80,7 @@ self.__precacheManifest = [
     "url": "/uchat/img/Full Logo.png"
   },
   {
-    "revision": "91bcacbef223b1d59fbe",
+    "revision": "efee5e5386f0838e7345",
     "url": "/uchat/css/app.ad5ba737.css"
   }
 ];
