@@ -10,12 +10,12 @@
     "start": "yarn run serve"
   },
   "dependencies": {
-    "nyan-progress-webpack-plugin": "^1.2.0",
     "register-service-worker": "^1.0.0",
     "vue": "^2.5.16",
     "vuetify": "^1.0.18"
   },
   "devDependencies": {
+    "nyan-progress-webpack-plugin": "^1.2.0",
     "@vue/cli-plugin-babel": "^3.0.0-beta.10",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.10",
     "@vue/cli-plugin-pwa": "^3.0.0-beta.10",
