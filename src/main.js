@@ -12,13 +12,13 @@ Vue.prototype.$platform = {
   hangouts: {
     color: colors.green.base,
     colorName: 'green',
-    icon: '/img/third_party/hangouts.png',
+    icon: '/uchat/img/third_party/hangouts.png',
     name: 'Google Hangouts'
   },
   discord: {
     color: colors.purple.base,
     colorName: 'purple',
-    icon: '/img/third_party/discord.svg',
+    icon: '/uchat/img/third_party/discord.svg',
     name: 'Discord'
   },
   facebook: {
