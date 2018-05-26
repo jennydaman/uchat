@@ -111,7 +111,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 
 #app {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,

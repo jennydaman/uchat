@@ -10,7 +10,9 @@ cache:
   directories:
     - "node_modules"
 
-script: yarn run build
+script:
+  - mv travis.config.js vue.config.js
+  - yarn run build
 
 deploy:
   provider: pages
