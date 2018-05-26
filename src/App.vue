@@ -110,7 +110,8 @@ export default {
   },
   metaInfo () {
     return {
-      title: (this.loading ? '' : 'uchat - ') + this.name,
+      title: this.name,
+      titleTemplate: 'uchat | %s',
       meta: [
         {name: 'theme-color', content: this.$vuetify.theme.primary}
       ]
