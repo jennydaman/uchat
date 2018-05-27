@@ -56,7 +56,7 @@ self.__precacheManifest = [
     "url": "/uchat/js/app.ae5d8524.js"
   },
   {
-    "revision": "df10a149e07717e11eb740e7d96653d6",
+    "revision": "173b733817182ec723643698a2a3952e",
     "url": "/uchat/index.html"
   },
   {
