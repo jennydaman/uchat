@@ -25,7 +25,6 @@
     ></lateral-menu>
   </v-navigation-drawer>
 
-
     <!-- appear after loading to avoid undefined errors -->
     <div id="chatpos" v-if="!loading">
       <div style="padding-left: 300px" class="hidden-md-and-down"></div>
@@ -41,7 +40,6 @@
   </v-app>
 </template>
 
-
 <script>
 import MessageGroup from './components/MessageGroup.vue'
 import ChatBox from './components/ChatBox.vue'
@@ -54,13 +52,13 @@ export default {
     return {
       drawer: true,
       user: {
-        name: "",
-        pic: ""
+        name: '',
+        pic: ''
       },
       allConversations: [],
       index: 0,
       messageStream: null,
-      darkTheme: true,
+      darkTheme: true
     }
   },
   created: function () {
@@ -74,29 +72,29 @@ export default {
     })
   },
   computed: {
-    loading: function() {
+    loading: function () {
       return this.index >= this.allConversations.length
     },
-    name: function() {
+    name: function () {
       return this.loading ? 'uchat' : this.allConversations[this.index].name
     },
     currentPlatform: {
-      get: function() {
+      get: function () {
         return this.loading ? 'uchat' : this.allConversations[this.index].preferredPlatform
       },
-      set: function(newValue) {
+      set: function (newValue) {
         this.allConversations[this.index].preferredPlatform = newValue
       }
     }
   },
   watch: {
     index: 'loadStream',
-    currentPlatform: function() {
+    currentPlatform: function () {
       this.$vuetify.theme.primary = this.$platform[this.currentPlatform].color
     }
   },
   methods: {
-    loadStream: function() {
+    loadStream: function () {
       Model.getMessageStream(this.allConversations[this.index].id).then(ms => {
         this.messageStream = ms
       })

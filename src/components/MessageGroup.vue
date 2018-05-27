@@ -4,12 +4,12 @@
   <p><v-layout
   column
   fill-height
-  v-bind:align-start="!isAuthor"
-  v-bind:align-end="isAuthor"
+  :align-start="!isAuthor"
+  :align-end="isAuthor"
   class="mgroup"
-  v-bind:class="isAuthor ? 'mright' : 'mleft'"
+  :class="isAuthor ? 'mright' : 'mleft'"
   >
-    <span v-for="message in messages" class="message" v-bind:style="special">{{ message }}</span>
+    <span v-for="message in messages" class="message" :style="special">{{ message }}</span>
   </v-layout></p>
 </template>
 

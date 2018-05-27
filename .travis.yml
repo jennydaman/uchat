@@ -13,6 +13,8 @@ cache:
 script:
   - mv travis.config.js vue.config.js
   - yarn run build
+  - cp -r public/mock/logout dist/mock # dang it webpack
+  - cp public/landing/index.html dist/landing
 
 deploy:
   provider: pages

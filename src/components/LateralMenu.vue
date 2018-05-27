@@ -72,7 +72,6 @@
       <span>&copy; uchat 2018. A <a href="https://hacks.mbhs.edu/" target="_blank">BlairHacks_1</a> project.</span>
     </v-footer>
 
-
     <!-- placeholder for account connection action -->
     <v-layout row justify-center>
       <v-dialog v-model="signin" persistent max-width="500px">
@@ -106,7 +105,7 @@
 <script>
 export default {
   name: 'lateral-menu',
-  data: function() {
+  data: function () {
     return {
       darkModel: true,
       signin: false
@@ -120,14 +119,13 @@ export default {
     allConversations: Array,
     index: Number
   },
-  created: function() {
-    if (document.cookie.includes('darkTheme=false'))
-      this.darkModel = false
+  created: function () {
+    if (document.cookie.includes('darkTheme=false')) { this.darkModel = false }
   },
   watch: {
-    darkModel: function() {
+    darkModel: function () {
       this.$emit('update:darkTheme', this.darkModel)
-      document.cookie = "darkTheme=" + this.darkModel
+      document.cookie = 'darkTheme=' + this.darkModel
     }
   }
 }
