@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 importScripts(
-  "/uchat/precache-manifest.db55f82fa9ac6c9b5617a7dca6cdb0ff.js"
+  "/uchat/precache-manifest.5ce2da5eed91cd30e26ebc4cd5c97660.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "uchat"});
